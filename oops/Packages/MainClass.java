@@ -12,11 +12,17 @@
 //                              🃏~ :) java oops.Packages.models.Teacher
 //                                           
 //      3.  Protected :
-//                      can be access within the package & outside the package through child class (inheritance)
+//                      can be access within the package & outside the package through child class 
+//                      (inheritance)
 //      4.  Public    :
 //                      can be accessed from anywhere, just need to import
-
-
+//
+//
+//
+////////////// 
+//
+//              Create Packages : $ Javac -d . *.java 
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
