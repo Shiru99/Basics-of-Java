@@ -12,7 +12,7 @@
 //                              🃏~ :) java oops.Packages.models.Teacher
 //                                           
 //      3.  Protected :
-//                      can be access within the package & outside the package through child class (inheritnce)
+//                      can be access within the package & outside the package through child class (inheritance)
 //      4.  Public    :
 //                      can be accessed from anywhere, just need to import
 
@@ -23,8 +23,6 @@
 
 
 package oops.Packages;
-
-import org.graalvm.compiler.nodes.NodeView.Default;
 
 // import oops.Packages.models.Student;
 // import oops.Packages.models.Teacher;
