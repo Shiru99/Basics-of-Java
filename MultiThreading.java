@@ -47,14 +47,26 @@ class ThreadTwo extends Thread {
     }
 }
 
+class RunnableThree implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Thread : 3");
+        }
+    }
+}
+
 public class MultiThreading {
     public static void main(String[] args) {
 
         Thread threadOne = new ThreadOne();
         Thread threadTwo = new ThreadTwo();
+        Runnable runnableThree = new RunnableThree();
+        Thread threadThree = new Thread(runnableThree);
+
 
         threadOne.start();
         threadTwo.start();
-
+        threadThree.start();
     }
 }
