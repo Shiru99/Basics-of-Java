@@ -24,34 +24,43 @@
 */
 
 class ThreadOne extends Thread {
+    public ThreadOne(String string) {
+        super(string);
+    }
+
     @Override
     public void run() {
         super.run();
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("Thread : 1");
+        for (int i = 0; i < 30; i++) {
+            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
         }
     
     }
 }
 
 class ThreadTwo extends Thread {
+    public ThreadTwo(String string) {
+        super(string);
+    }
+
     @Override
     public void run() {
         super.run();
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("Thread : 2");
+        for (int i = 0; i < 30; i++) {
+            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
         }
 
     }
 }
 
 class RunnableThree implements Runnable {
+
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println("Thread : 3");
+        for (int i = 0; i < 30; i++) {
+            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
         }
     }
 }
@@ -59,11 +68,19 @@ class RunnableThree implements Runnable {
 public class MultiThreading {
     public static void main(String[] args) {
 
-        Thread threadOne = new ThreadOne();
-        Thread threadTwo = new ThreadTwo();
-        Runnable runnableThree = new RunnableThree();
-        Thread threadThree = new Thread(runnableThree);
+        System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
 
+        Thread threadOne = new ThreadOne("Thread One");
+        Thread threadTwo = new ThreadTwo("Thread Two");
+        Runnable runnableThree = new RunnableThree();
+        Thread threadThree = new Thread(runnableThree,"Thread Three");
+
+        threadTwo.setPriority(Thread.MAX_PRIORITY);
+        threadOne.setPriority(Thread.MIN_PRIORITY);
+
+        System.out.println("Thread One Priority : "+threadOne.getPriority());
+        System.out.println("Thread Two Priority : "+threadTwo.getPriority());
+        System.out.println("Thread Three Priority : "+threadThree.getPriority());
 
         threadOne.start();
         threadTwo.start();
