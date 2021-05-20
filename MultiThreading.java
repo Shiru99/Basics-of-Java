@@ -5,7 +5,7 @@
     Various stages of life cycle of thread
 
         1. New
-        2. Runnable
+        2. Runnable  [Thread-pool]
         3. Running
         4. Waiting
         5. Dead
@@ -65,6 +65,40 @@ class RunnableThree implements Runnable {
     }
 }
 
+
+
+
+class ThreadFour extends Thread {
+    public ThreadFour(String string) {
+        super(string);
+    }
+
+    @Override
+    public void run() {
+        super.run();
+
+        for (int i = 0; i < 30; i++) {
+            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        }
+
+    }
+}
+
+class ThreadFive extends Thread {
+    public ThreadFive(String string) {
+        super(string);
+    }
+
+    @Override
+    public void run() {
+        super.run();
+
+        for (int i = 0; i < 30; i++) {
+            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        }
+
+    }
+}
 public class MultiThreading {
     public static void main(String[] args) {
 
@@ -85,5 +119,21 @@ public class MultiThreading {
         threadOne.start();
         threadTwo.start();
         threadThree.start();
+
+
+        Thread threadFour = new ThreadFour("Thread Four");
+        Thread threadFive = new ThreadFour("Thread Five");
+
+        threadFour.start();
+
+        try {
+            threadFour.join(5000); // Waits for this thread to die.
+        } 
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        threadFive.start();
     }
 }
