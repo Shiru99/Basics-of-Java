@@ -32,10 +32,10 @@ class ThreadOne extends Thread {
     public void run() {
         super.run();
 
-        for (int i = 0; i < 30; i++) {
-            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
         }
-    
+
     }
 }
 
@@ -47,9 +47,8 @@ class ThreadTwo extends Thread {
     @Override
     public void run() {
         super.run();
-
-        for (int i = 0; i < 30; i++) {
-            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
         }
 
     }
@@ -59,14 +58,11 @@ class RunnableThree implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
         }
     }
 }
-
-
-
 
 class ThreadFour extends Thread {
     public ThreadFour(String string) {
@@ -76,9 +72,14 @@ class ThreadFour extends Thread {
     @Override
     public void run() {
         super.run();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
 
-        for (int i = 0; i < 30; i++) {
-            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -92,34 +93,38 @@ class ThreadFive extends Thread {
     @Override
     public void run() {
         super.run();
-
-        for (int i = 0; i < 30; i++) {
-            System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
         }
 
     }
 }
+
 public class MultiThreading {
     public static void main(String[] args) {
 
-        System.out.println(Thread.currentThread().getId()+" : "+Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
 
         Thread threadOne = new ThreadOne("Thread One");
         Thread threadTwo = new ThreadTwo("Thread Two");
         Runnable runnableThree = new RunnableThree();
-        Thread threadThree = new Thread(runnableThree,"Thread Three");
+        Thread threadThree = new Thread(runnableThree, "Thread Three");
 
         threadTwo.setPriority(Thread.MAX_PRIORITY);
         threadOne.setPriority(Thread.MIN_PRIORITY);
 
-        System.out.println("Thread One Priority : "+threadOne.getPriority());
-        System.out.println("Thread Two Priority : "+threadTwo.getPriority());
-        System.out.println("Thread Three Priority : "+threadThree.getPriority());
+        // Despite of higher priority, OS has role while selecting threads which may not
+        // match priorities
 
-        threadOne.start();
+        System.out.println("Thread One Priority : " + threadOne.getPriority());
+        System.out.println("Thread Two Priority : " + threadTwo.getPriority());
+        System.out.println("Thread Three Priority : " + threadThree.getPriority());
+
+        threadOne.run(); // Main thread will call this method
+
+        threadOne.start(); // Start() => adds thread to thread pool
         threadTwo.start();
         threadThree.start();
-
 
         Thread threadFour = new ThreadFour("Thread Four");
         Thread threadFive = new ThreadFour("Thread Five");
@@ -128,11 +133,9 @@ public class MultiThreading {
 
         try {
             threadFour.join(5000); // Waits for this thread to die.
-        } 
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
         threadFive.start();
     }
