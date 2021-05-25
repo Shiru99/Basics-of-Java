@@ -6,13 +6,13 @@
 //
 //      3.  constructor of parent is always called regardless of however constructor in child, from child's 
 //          constructor
-//          super(arguments) ==> calls parent construtor with arguments
-//          otherwise        ==> calls parent construtor without arguments i.e. super()    
+//          super(arguments) ==> calls parent constructor with arguments
+//          otherwise        ==> calls parent constructor without arguments i.e. super()    
 //
-//      4.  So, if construtor with arguments is added in parent we need to add construtor with arguments in 
-//          childern also to use child with arguments & add super(arguments)
+//      4.  So, if constructor with arguments is added in parent we need to add constructor with arguments in 
+//          children also to use child with arguments & add super(arguments)
 //          and
-//          need to add construtor without arguments in parents to use child without arguments
+//          need to add constructor without arguments in parents to use child without arguments
 //         
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ public class MainClass {
         /*  
             Due to Super & Constructor :
                     person - Constructor without arguments
-                    In Teacher construtor without arguments
+                    In Teacher constructor without arguments
         */
         t.name = "RanChhodDas";
         System.out.println("Singer s :");
@@ -48,7 +48,7 @@ public class MainClass {
         /*      
             Due to Super :
                     person 'Virus' can walk.
-                    Singer 'Virus' is eatting Vadapav
+                    Singer 'Virus' is eating Vadapav
         */
 
         t.eat();
@@ -84,7 +84,7 @@ public class MainClass {
 
 
 
-        /////////////////////////////////   Construtor with arguments    ////////////////////////////////
+        /////////////////////////////////   Constructor with arguments    ////////////////////////////////
         System.out.println("Person P0 :");
         Person p0 = new Person("John Doe");
 
@@ -93,10 +93,10 @@ public class MainClass {
         /*
             if super(arguments) is not called,
                 person - Constructor without arguments (must be defined otherwise ERROR)
-                In Teacher construtor with arguments
+                In Teacher constructor with arguments
             otherwise,
                 person - Constructor with arguments depending on super() or super(arguments    )
-                In Teacher construtor with arguments
+                In Teacher constructor with arguments
         */
 
     }

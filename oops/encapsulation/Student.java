@@ -13,7 +13,7 @@ public class Student {
     public void setEnroll(int paidAmount){
         this.paidAmount += paidAmount;
         if (this.paidAmount < 200){
-            System.out.println("You havn't paid completely.!");
+            System.out.println("You haven't paid completely.!");
         }
         else{
             System.out.println("You have Enrolled Successfully.!");

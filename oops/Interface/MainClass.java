@@ -12,7 +12,7 @@
 //                  
 //          1.  interface can't have instances
 //          2.  they don't have constructor
-//          3.  thay don't have methods with body (TILL java 8.0) 
+//          3.  they don't have methods with body (TILL java 8.0) 
 //              Cons :  if we are interfacing in 100 classes & we want to add new method we were supposed to 
 //                      override it in all 100 classes  
 //              after java 8.0 we can add methods with body using "default" keyword, these methods need not be 
@@ -22,8 +22,8 @@
 //          4.  by default attributes of interface are public,static & final // we can change them.
 //          5.  by default methods of interface are public,abstract
 //          6.  interface can extend interface but not class
-//          7.  class implementing an interface must prrovide imple. for all of its methods unless it's an 
-//              abstrct class
+//          7.  class implementing an interface must provide implementation for all of its methods unless 
+//              it's an abstract class
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

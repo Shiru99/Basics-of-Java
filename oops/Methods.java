@@ -2,19 +2,16 @@
 //
 //      1.  public class
 //      2.  static blocks in-order
-//      3.  main fuction
+//      3.  main function
 //      :
 //      :
 //
 
 
-
-
-
 //           pass by value or pass by reference :
 
 //         1. for primitive datatypes it's pass by value
-//         2. for non-premitive it's pass by reference
+//         2. for non-primitive it's pass by reference
 //                    e.g for dog1 object of Dog class
 
 

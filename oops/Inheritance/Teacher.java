@@ -6,11 +6,11 @@ public class Teacher extends Person {
         // super(name);
         // super();
         this.name = name;  
-        System.out.println("In Teacher construtor with arguments");
+        System.out.println("In Teacher constructor with arguments");
     }
     public Teacher(){
         // calls person's constructor without arguments automatically
-        System.out.println("In Teacher construtor without arguments");
+        System.out.println("In Teacher constructor without arguments");
     }
     public void teach(){                          // get overloaded
         System.out.println("Teacher '"+name +"' can teach.");

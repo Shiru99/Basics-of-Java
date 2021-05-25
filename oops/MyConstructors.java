@@ -33,8 +33,8 @@ public class MyConstructors {               // ONLY ONE public class
         Vehicles car = new Vehicles();   
         System.out.println(car.wheels +"-Wheeler & color is "+ car.color);      // 4-Wheeler & color is Black
 
-        Vehicles autoRickshow = new Vehicles(3,"black & Yellow");
-        System.out.println(autoRickshow.wheels +"-Wheeler & color is "+ autoRickshow.color);   
+        Vehicles autoRickshaw = new Vehicles(3,"black & Yellow");
+        System.out.println(autoRickshaw.wheels +"-Wheeler & color is "+ autoRickshaw.color);   
         //                                                           3-Wheeler & color is black & Yellow        
 
 

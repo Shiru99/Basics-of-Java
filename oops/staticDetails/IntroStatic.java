@@ -35,7 +35,7 @@ public class IntroStatic {
 
     public static void main(String[] args) {
         System.out.println("In main Function");
-        float pyee = InnerIntroStatic_1.pie;           // no need to create object unlike non-static classes. 
+        float pyee = InnerIntroStatic_1.pie;        // no need to create object unlike non-static classes. 
         System.out.println(pyee);
     }
 

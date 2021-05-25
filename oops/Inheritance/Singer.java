@@ -8,7 +8,7 @@ public class Singer extends Person {
 
     public void eat(String item){                          // get overloaded
         super.walk();  
-        System.out.println("Singer '"+name+"' is eatting "+item);
+        System.out.println("Singer '"+name+"' is eating "+item);
     }
 
     public static void laugh(){             // method of class not of object

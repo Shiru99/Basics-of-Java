@@ -2,12 +2,12 @@
 //
 //      Variable :
 //              1.  final variable can't be changed.
-//              2.  final variables must be initilized while 'creating' only (not for local variables, local 
+//              2.  final variables must be initialized while 'creating' only (not for local variables, local 
 //                  variables can be initialized later)
 //              3.  once created variable can't be converted into final
 //              4.  final variables should be in CAPITALS (convention)
-//              5.  BLACK variable - final variable that is not initilized while declaration
-//                      these can be intilized in blocks or static blocks or constructors
+//              5.  BLACK variable - final variable that is not initialized while declaration
+//                      these can be initialized in blocks or static blocks or constructors
 //          
 //      method :
 //              final method can't be overridden.
@@ -25,7 +25,7 @@ package oops.FinalKeyword;
 public class MainClass {
 
     // final String FUN; 
-    // Error : final variables must be initilized while 'creating' only (not for local variables)
+    // Error : final variables must be initialized while 'creating' only (not for local variables)
     final String FUN = "Fun";
 
     public static void main(String[] args)
@@ -40,7 +40,7 @@ public class MainClass {
         // name = "John";                       // Error
 
 
-        // final String COLLEGE;            // COLLLEGE - Blank variable
+        // final String COLLEGE;            // COLLEGE - Blank variable
         // System.out.println(COLLEGE);     // ERROR : The local variable COLLEGE may not have been initialized
         // COLLEGE = "HARIHARIDHAR";
         // System.out.println(COLLEGE);     // HARIHARIDHAR
@@ -64,7 +64,7 @@ public class MainClass {
         System.out.println(s3.marks);
         s3.marks = 99;
         System.out.println(s3.marks);
-        // referance "s3" can be fixed but variable in it are not.
+        // reference "s3" can be fixed but variable in it are not.
     }
 
 }

@@ -4,7 +4,7 @@
 //          1.  it can have both abstract(method without body) as well as concrete(regular methods with body)
 //          2.  only abstract class may have abstract methods not normal classes
 //          3.  object can't be created for abstract class
-//          4.  abstract class must be extended & abstract classes must be overridden 
+//          4.  abstract class must be extended & abstract methods must be overridden 
 //      
 //
 //////////////////////////////// Abstraction vs Encapsulation //////////////////////////////
@@ -17,7 +17,7 @@
 //              with electricity wires
 //
 //      Encapsulation
-//          1.  Encapsulation means hiding internal details or mechanics of how an object does somthing
+//          1.  Encapsulation means hiding internal details or mechanics of how an object does something
 //              for security reasons
 //          2.  Enc means binding the code and data into single unit
 //          3.  Enc solves issues at implementation   

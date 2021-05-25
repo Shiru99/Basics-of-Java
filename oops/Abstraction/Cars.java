@@ -12,7 +12,7 @@ public abstract class Cars {
         System.out.println("your car is Khatara...");
     }
 
-    // abstract means implimentation of this method will be in its child.
+    // abstract means implementation of this method will be in its child.
 
     // abstract can be used only in abstract classes, so class must be abstract
 
