@@ -1,76 +1,93 @@
 public class ExceptionHandling {
-
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
 
         /////////////////////////////////// TRY & CATCH   //////////////////////////////////
-        /*
-        try {
-            // int a = 100;
-            // int b = 0;
-            // System.out.println(a/b); // Exception in thread "main"
-            // java.lang.ArithmeticException: divide by zero
-
-            int array[] = new int[5];
-            // System.out.println(array); // [I@1eb44e46
-            System.out.println(array[7]); // Index 7 out of bounds for length 5 (Remove this error.!!)
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage() + " (Remove this error.!!)");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage() + " (Remove this error.!!)");
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage() + " (Remove this error.!!)");
-        } finally {                                             // finally runs Always
-            System.out.println("Error can't be handled");
-        }
-        */
-        //////////////////////////////////////   creating Delay ////////////////////////////////////////////
-        /*
-        System.out.println("Imp. code");
-
-        // Delay of 3 sec:
-        try {
-            Thread.sleep(3000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-
-        System.out.println("must run.!!!");
-        */
         
-    
+        int array[] = new int[5];
+
+        try 
+        {   
+            System.out.println(array[7]); // Index 7 out of bounds for length 5 (Remove this error.!!)
+        }  
+        catch (ArrayIndexOutOfBoundsException e) 
+        {
+            System.out.println(e.getMessage() + " (Remove this error.!!)");
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            System.out.println(e.getMessage() + " (Remove this error.!!)");
+        } 
+        finally             
+        {                             
+            System.out.println("Error can't be handled, Disconnecting database...");
+        }
+        // finally runs Always even after return statement
+        
+        
         
         //////////////////////////////////// Throw Error     ///////////////////////////////////
 
         /*
-            fun();
+            fun(0,0);      // fun without throws
             System.out.println("This must run iff there is no Danger");
         */
 
-        ///////////////////////   Throws (we know this type of error can be thrown from here)   ////////////////
-        /* */
-            try{
-                fun();
-            }catch(Exception e){
-                System.out.println(e.getMessage()+" Occured");
-            }
-        /* */
-
-        }
-    
-        static void fun() throws ArithmeticException{
-        // static void fun(){
-            int a = 3;
-            int b = 0;
-    
-            if (b/a == 0); 
-                boolean isDanger = true;
-            if (isDanger)
-            {
-                throw new ArithmeticException("Danger is coming...hence Stopping.!");
-                // throw gives error & stops execution of program.
-            }
-        }
+        ///////////////   Throws (we know this type of error can be thrown from here)   ////////////////
         
+        try{
+            fun(9,0);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage()+" Occurred");
+        }
+
+        System.out.println("--------------------");
+
+        try {
+            fun(-1,3);
+        } catch (ArithmeticException | MyException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("--------------------");
+
+    }
     
+    static void fun(int one,int two) throws ArithmeticException, MyException
+    {
+        int a = one;
+        int b = two;
+
+        if (b/a == 0)
+        {
+            throw new ArithmeticException("Danger is coming..."); // throw gives error & stops execution of program.
+        }
+
+        if(a<0){
+            // try {
+                throw new MyException();
+            // } catch (MyException e) {
+            //     System.out.println(e);            // => toString()
+            //     System.out.println(e.toString());
+            //     System.out.println(e.getMessage());
+            //     e.printStackTrace();
+            //     System.out.println("No Exit");
+            // }
+        }
+    }
+}
+
+class MyException extends Exception{
+    @Override
+    public String toString() {
+        return "☠️ From custom toString";
+    }
+
+    @Override
+    public String getMessage() {
+        return "☠️ From custom getMessage";
+    }
+
+
 }
