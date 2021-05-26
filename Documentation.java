@@ -1,10 +1,15 @@
 // Package.name
 
+/*
+    How to Create Documentation : 
 
-// How to Create doc : javadoc -d doc -author -version Documentation.java
+        $ javadoc  -use -splitindex -protected -author -version Documentation.java -d Documentation
+
+*/
+
 
 /**
- * JavaDoc tool is a document generator tool in Java programming language for generating standard documentation in HTML format.
+ * This is Documentation Class. JavaDoc tool is a document generator tool in Java programming language for generating standard documentation in HTML format.
  * 
  * 
  * @version 1.0.0
@@ -22,12 +27,41 @@
 
 public class Documentation{
 
-    private static void addition(int a,int b){
-        System.out.println("Addition of "+a+" & "+b+" is "+(a+b));
+    /**
+     * 
+     * @param args These are arguments supplied to the command line
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception
+    {
+        float a=3.0f;
+        float b=6.0f;
+        System.out.println("Addition of "+a+" & "+b+" is "+addition(a,b));
     }
 
-    public static void main(String[] args)
-    {
-        addition(3, 6);
+    /**
+     * private/protected methods - invisible on Documentation
+     * @param i 1st integer argument for addition
+     * @param j 2nd integer argument for addition
+     * @return sum of two numbers as a integer
+     * 
+     * @deprecated this method is deprecated. better not to use
+    */
+    public static int addition(int i,int j){
+        return i+j;
+    }
+
+     /**
+     * public method - visible on Documentation 
+     * @param i 1st float argument for addition
+     * @param j 2nd float argument for addition
+     * @return sum of two numbers as a float
+     * @throws Exception if j equals to 0
+    */
+    public static float addition(float i,float j) throws Exception{
+        if(j==0){
+            throw new Exception();
+        }
+        return i+j;
     }
 }

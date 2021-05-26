@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"Documentation","l":"Documentation()","url":"%3Cinit%3E()"},{"p":"<Unnamed>","c":"Documentation","l":"main(String[])","url":"main(java.lang.String[])"}]
+memberSearchIndex = [{"p":"<Unnamed>","c":"Documentation","l":"addition(float, float)","url":"addition(float,float)"},{"p":"<Unnamed>","c":"Documentation","l":"addition(int, int)","url":"addition(int,int)"},{"p":"<Unnamed>","c":"Documentation","l":"Documentation()","url":"%3Cinit%3E()"},{"p":"<Unnamed>","c":"Documentation","l":"main(String[])","url":"main(java.lang.String[])"}]
