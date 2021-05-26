@@ -18,6 +18,9 @@ public class Anonymous {
             public void presentDemo() {
                 System.out.println("Presenting Demo of Anonymous class");
             }
+            void closeProject(){
+                System.out.println("Project Closed");
+            }
         };
         d0.presentDemo();;
     }
