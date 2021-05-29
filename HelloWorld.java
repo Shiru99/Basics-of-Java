@@ -16,7 +16,7 @@ class HelloWorld
 
         //     /*
 
-        //     Interger Type   :  
+        //     Integer Type   :  
         //     /                    byte(10)             ==> 1 byte = 1 bit for sign + 7 bits for storage
         //     /                    short(10101)         ==> 2 bytes
         //     /                    int(1010101)         ==> 4 bytes
@@ -37,6 +37,10 @@ class HelloWorld
         // double time0 = 15.1432;               // no need of f
         // boolean willIFinishItToday = true;    
         // char myFavChar = '@';                 // char always in single quotes - ''
+
+        // int count = 0b00010;                 // 2
+        // int price = 9_999;                   // 9999
+        // double val = 23_456.789E-12;         // 2.3456789E-8  
 
 
 
@@ -71,8 +75,8 @@ class HelloWorld
         // */
 
         // double myDouble = 2.999999;
-        // int myint = (int) myDouble;
-        // System.out.println(myint);                // gives 2 - floor value, not 3
+        // int myInt = (int) myDouble;
+        // System.out.println(myInt);                // gives 2 - floor value, not 3
 
 
 
@@ -154,7 +158,7 @@ class HelloWorld
 
 
         // /*
-        //     Arithmatic operators : & , |
+        //     Arithmetic operators : & , |
         // */
 
         // int x = 33;
@@ -168,8 +172,8 @@ class HelloWorld
 
         // int reminder = y%x;
 
-        // int earlyIncre = ++x;        // before execution 
-        // int lateIncre  = x++;        // after execution 
+        // int earlyIncr = ++x;        // before execution 
+        // int lateIncr  = x++;        // after execution 
 
         // /*
         //     bitwise operators : & , |
@@ -218,12 +222,12 @@ class HelloWorld
         //     difference between & and && is :
 
         //     0 && 1 && 1 && 1 && 1 && 1 && 1 && 1 && 1 && 1  // Gives 0/false just locking at 1st 0
-        //     0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1               // Gives 0/false only after chacking till end
+        //     0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1               // Gives 0/false only after checking till end
 
 
         // */
 
-///////////////////////////////////////    Condtional Statments    //////////////////////////////////////////
+///////////////////////////////////////    Conditional Statements    //////////////////////////////////////////
 
 
         // /*
@@ -312,10 +316,10 @@ class HelloWorld
 
         //     For loop :
 
-        //     for (initialization;condition;reinitializaion)
+        //     for (initialization;condition;re-initialization)
         //     {
-        //         // initializaion executes only once                ==> can  be empty => infinite loop
-        //         // condtion executes every time before code block
+        //         // initialization executes only once                ==> can  be empty => infinite loop
+        //         // condition executes every time before code block
         //         // reinitializaion executes everytime but at the end of code block
         //     }
 
@@ -344,7 +348,7 @@ class HelloWorld
 
         //     While loop :
 
-        //     initializaion
+        //     initialization
             
         //     while(condition)
         //     {
@@ -360,7 +364,7 @@ class HelloWorld
 
         //     do While loop :
 
-        //     initializaion
+        //     initialization
 
         //     do
         //     {
@@ -428,7 +432,7 @@ class HelloWorld
         //     /// creates in only pool area if not available
 
         //     string animal3 = "cat"
-        //     /// uses same availble in pool ; doesn't create new one // more efficient way of JAVA
+        //     /// uses same available in pool ; doesn't create new one // more efficient way of JAVA
         // */
 
 
