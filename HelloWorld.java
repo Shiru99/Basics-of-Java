@@ -323,6 +323,11 @@ class HelloWorld
         //         // reinitializaion executes everytime but at the end of code block
         //     }
 
+        // int i,j;
+        // for(i=1,j=49;i+j<100;i+=2,j--){
+        // System.out.print("("+i+","+j+")\t");
+        // }
+
 
 
         //     nested for loop :
@@ -394,6 +399,12 @@ class HelloWorld
 
         // for (int a : nums){                     //// FOREACH LOOP
         //     System.out.println(a);
+        // }
+
+        // int nums[] = {9,3,7,0};
+        // String nums[] = {"A","B","CD"};
+        // for (var v : nums) {
+        //         System.out.print(v+" ");
         // }
 
 
