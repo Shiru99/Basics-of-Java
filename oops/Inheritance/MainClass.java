@@ -28,6 +28,9 @@ public class MainClass {
         /*  
                 person - Constructor without arguments
         */
+        System.out.println("Person age (String) - "+p.age);
+
+
         System.out.println("Teacher t :");
         Teacher t = new Teacher();
         /*  
@@ -36,12 +39,16 @@ public class MainClass {
                     In Teacher constructor without arguments
         */
         t.name = "RanChhodDas";
+        System.out.println("Teacher - age : "+t.age);
+
+
         System.out.println("Singer s :");
         Singer s = new Singer();
         /*  
                     person - Constructor without arguments
         */
         s.name = "Virus";
+        System.out.println("Singer - age : "+t.age);
 
         s.eat();
         s.eat("Vadapav");

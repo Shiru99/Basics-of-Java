@@ -3,6 +3,7 @@ package oops.Inheritance;
 public class Person {
     
     protected String name;
+    public String age="Null-String";      // String 
 
     public Person(){
         System.out.println("person - Constructor without arguments");

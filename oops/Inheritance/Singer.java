@@ -2,7 +2,9 @@ package oops.Inheritance;
 
 public class Singer extends Person {
 
-    public void sing(){                          // get overloaded
+    public int age=99;      // String -> Integer // variable hiding
+
+    protected void sing(){                          // get overloaded
         System.out.println("Singer '"+name+"' can sing.");
     }
 

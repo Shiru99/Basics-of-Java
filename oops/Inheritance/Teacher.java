@@ -1,6 +1,8 @@
 package oops.Inheritance;
 
 public class Teacher extends Person {
+
+    public int age=99;      // String -> Integer // variable hiding
     
     public Teacher(String name){
         // super(name);
@@ -12,7 +14,7 @@ public class Teacher extends Person {
         // calls person's constructor without arguments automatically
         System.out.println("In Teacher constructor without arguments");
     }
-    public void teach(){                          // get overloaded
+    protected void teach(){                          // get overloaded
         System.out.println("Teacher '"+name +"' can teach.");
     }
 
