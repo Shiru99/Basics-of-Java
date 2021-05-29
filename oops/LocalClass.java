@@ -3,9 +3,19 @@ package oops;
 public class LocalClass {
     public static void main(String[] args) 
     {
+
+        int alpha = -1;
+
+        // alpha = 99;      
+        /* 
+            Local variable alpha defined in an enclosing scope must be final or effectively final
+        */ 
+
+
         // Local Class
         class FooClass {
             private int x;
+            private int y = alpha; 
 
             public int getX() {
                 return x;
