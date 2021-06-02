@@ -54,14 +54,34 @@ public class GenericsWorking {
 
         System.out.println(l);                  // [Java, Python, C/C++, 99]
         // int i = l.get(3);                    // Compile time error 
+        // System.out.println(l.get(3));        // RunTimeError - Integer cannot be cast to String
         // String j = (String) l.get(3);        // RunTimeError - Integer cannot be cast to String
-        System.out.println(l.get(3));           // RunTimeError - Integer cannot be cast to String
+        
+        Object j = l.get(3);
+        System.out.println(j);  // 99
+        // System.out.println(j.getClass().getSimpleName());    // Integer
+
 
         /*
             Conclusion :    
                 
                 1. Generic type is associated with variable not with instance
-                2. Generics concept is compile time construct
+                2. Generics concept is compile time construct (whereas typed array - run time construct)
         */
+
+
+
+        String []nums = {"One","Two"};
+        
+        setStringToArray(nums, "Zero");  
+        setIntToArray(nums, 0);         // ArrayStoreException: java.lang.Integer
+    }
+
+    private static void setStringToArray(String[] arr,String i){
+        arr[0] = i;
+    }
+
+    private static void setIntToArray(Object[] arr,int i){
+        arr[0] = i;
     }
 }
