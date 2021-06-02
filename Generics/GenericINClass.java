@@ -28,7 +28,7 @@ class Cage <X> {
     }
 }
 
-public class GenericClass {
+public class GenericINClass {
     public static void main(String[] args) {
 
         Cage Cage = new Cage();         // Raw-type 
