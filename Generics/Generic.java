@@ -1,5 +1,7 @@
 package Generics;
 
+import java.util.*;
+
 class Gene<X,Y> 
 {
     X a;
@@ -36,6 +38,7 @@ public class Generic {
     
     public static void main(String[] args) 
     {
+        Map<String,Date> a = new HashMap<>();
         // Gene<String,Integer> g1 = new Gene<String,Integer>("John Doe", 33);
         // Gene<Boolean,Double> g2 = new Gene<>(true, 3.14);
 
