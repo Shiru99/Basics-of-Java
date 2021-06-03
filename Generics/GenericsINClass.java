@@ -1,9 +1,21 @@
 package Generics;
 
-class Monkey {}
-class Lion{}
+class Animal{
 
-class Cage <X> {
+    private String breed;
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+}
+class Monkey extends Animal{}
+class Lion extends Animal{}
+
+class Cage <X extends Animal> {
     private X animal1;
     private X animal2;
 
@@ -25,7 +37,13 @@ class Cage <X> {
     }
     public void setAnimal2(X animal2) {
         this.animal2 = animal2;
+    }   
+
+    // possible bz of upper bound with wildcard
+    public boolean isSameBreed(){
+        return animal1.getBreed().equals(animal2.getBreed());
     }
+
 }
 
 public class GenericsINClass {
@@ -72,6 +90,9 @@ public class GenericsINClass {
         // System.out.println(lionCage.getAnimal1().getClass().getSimpleName());    // Lion
         // System.out.println(lionCage.getAnimal2().getClass().getSimpleName());    // Lion
 
+        // ------------- -------- --------- ------ WildCard with upper bound --------   --------    ---
 
+        // Cage<String> strs = new Cage<String>();
+        // Error - Bound mismatch: The type String is not a valid substitute for the bounded parameter <X extends Animal> of the type Cage<X>
     }
 }
