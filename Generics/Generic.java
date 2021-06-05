@@ -46,9 +46,11 @@ public class Generic {
         // g2.description();
 
         Sum(2,4);
+        Sum(2,3.3);
     }
 
-    static <A,B> void Sum(A a,B b){
-        System.out.println(a+" & "+b);
+    public static <A extends Number,B extends Number> void Sum(A a,B b){
+        Number num = a.doubleValue()+ b.doubleValue();
+        System.out.println("Sum of "+a+" & "+b+"\t= " +num);
     }
 }
