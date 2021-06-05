@@ -3,7 +3,7 @@ package Generics;
 import java.rmi.server.ObjID;
 import java.util.*;
 
-public class GenericINInheritance {
+public class GenericsINInheritance {
 
     private static void printListWithoutGenerics(List l){
         l.add("Anything int/String");
