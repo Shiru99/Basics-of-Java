@@ -2,17 +2,12 @@ package Lambda;
 
 /*
     LambdaExpressions :
-
-        - provides a clear and concise way to represent one method interface using an expression
-
-        - The Lambda expression is used to provide the implementation of an interface which has functional interface. It saves a lot of code. In case of lambda expression, we don't need to define the method again for providing the implementation. Here, we just write the implementation code.
+        
+            The Lambda expression is used to provide the implementation of functional interface. 
 
         - Java lambda expression is treated as a function, so compiler does not create .class file
-
         - Enable to treat functionality as a method argument, or code as data.
-        
         - A lambda expression can be passed around as if it was an object and executed on demand.
-
 
 
     From Interface :
@@ -20,7 +15,11 @@ package Lambda;
         Class which need to use only once ==> Anonymous class 
         If it's functional interface ==> Lambda
 */
-@FunctionalInterface            // contains only one abstract method
+
+/**
+ *  Functional Interface : contains only one abstract method but we can add multiple default methods
+ */
+@FunctionalInterface
 interface Doo {
     public void doSomething(String task);
 
@@ -74,20 +73,17 @@ public class LambdaExpressions {
         // doYoga.doSomething("Kapal-Bharti");          //  Lambda : Doing Yoga - Kapal-Bharti
         // doYoga.doNothing();                          //  Do Nothing
 
-        /**
-         * @
-         */
         // passing function as parameters
         takeLambdaFunctionInput(playGame,"Subway Surfer");
         takeLambdaFunctionInput(doYoga,"Kapal-Bharti");
         takeLambdaFunctionInput((task)->System.out.println("Lambda : Doing Coding - "+task),"Python");
 
     }
+
     /**
-         * @param lamFun - functional argument
-         */
+    * @param lamFun - functional argument
+    */
     public static void takeLambdaFunctionInput(Doo lamFun,String activity) {
-        System.out.print("Functional Argument - ");
         lamFun.doSomething(activity);
     }
 }
