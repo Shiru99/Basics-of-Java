@@ -31,9 +31,9 @@ public class ExceptionHandlingInLambda {
         return (k, v) -> {
             System.out.print("Wrapper function : ");
             try {
-                System.out.println(v / k);
+                consumer.accept(k, v);
             } catch (ArithmeticException ae) {
-                System.out.println("Error - / by Zero");
+                System.out.println("Wrapper Error - / by Zero");
             }
         };
     }
