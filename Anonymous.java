@@ -13,7 +13,15 @@ interface Demo{
 public class Anonymous {
     public static void main(String[] args) 
     {
-        Demo d0 = new Demo(){
+        int a = 0; 
+
+        Demo d0 = new Demo()
+        {
+            int alpha = a;  // Closure
+
+            // a++; 
+            /* Error - Local variable defined in an enclosing scope must be final or effectively final */ 
+
             @Override
             public void presentDemo() {
                 System.out.println("Presenting Demo of Anonymous class");
