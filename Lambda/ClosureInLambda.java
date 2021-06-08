@@ -1,5 +1,9 @@
 package Lambda;
 
+/*
+    Closures are the inline-function valued expressions which means that they are the class functions with bounded variables. Closures can be passed to another function as a parameter. A closure gives us access to the outer function from an inner function.
+    
+*/
 import java.util.function.*;
 
 public class ClosureInLambda {
