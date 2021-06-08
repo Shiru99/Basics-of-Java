@@ -3,6 +3,8 @@
 
         A class that have no name is known as anonymous/inner class in java. 
         It should be used if you have to override method of class or interface.
+
+        Anonymous inner classes are not closures in Java
 */ 
 
 @FunctionalInterface
@@ -17,7 +19,7 @@ public class Anonymous {
 
         Demo d0 = new Demo()
         {
-            int alpha = a;  // Closure
+            int alpha = a;
 
             // a++; 
             /* Error - Local variable defined in an enclosing scope must be final or effectively final */ 
