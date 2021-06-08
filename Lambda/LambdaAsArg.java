@@ -6,6 +6,8 @@ package Lambda;
     A functional Interface for which a lambda expression has invoked is called "target type" of lambda expression. 
     
     It means that if a lambda expression has invoked for some "X" interface then "X" is the target type of that lambda expression. Hence, we conclude that lambda expressions can be used only in those situations where java compiler can determine the Target Type.
+
+    Closures are the inline-function valued expressions which means that they are the class functions with bounded variables. Closures can be passed to another function as a parameter. A closure gives us access to the outer function from an inner function.
 */
 
 
