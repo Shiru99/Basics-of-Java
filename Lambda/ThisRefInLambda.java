@@ -9,7 +9,7 @@ public class ThisRefInLambda {
         // System.out.println(this);           // Lambda.ThisRefInLambda@6ff3c5b5
     }
 
-    public void doTwo(int i, Consumer c) {
+    public void doTwo(int i, Consumer<Integer> c) {
         // System.out.println(this);           // Lambda.ThisRefInLambda@6ff3c5b5
         c.accept(i);
     }
@@ -19,7 +19,7 @@ public class ThisRefInLambda {
         doTwo(9, (i) -> {
             System.out.println(this);       // Lambda.ThisRefInLambda@6ff3c5b5
             /* 
-                lambda doesn't override 'this reference' (like closure).
+                lambda doesn't override 'this reference'
                  
                 So here this == class instance in which lambda defined
             */
@@ -40,7 +40,7 @@ public class ThisRefInLambda {
             /*
              * Error - Cannot use this in a static context
              * 
-             * lambda doesn't override 'this reference' (like closure)
+             * lambda doesn't override 'this reference'
              */
 
             System.out.println(i);
