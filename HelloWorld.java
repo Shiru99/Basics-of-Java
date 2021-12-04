@@ -418,12 +418,12 @@ class HelloWorld
         // }
 
 
-        int num[][]={
-            {1,2,3,5,6,8,9,6},
-            {1,2,3,4,5},
-            {3,5},
-            {0}
-        };
+        // int num[][]={
+        //     {1,2,3,5,6,8,9,6},
+        //     {1,2,3,4,5},
+        //     {3,5},
+        //     {0}
+        // };
 
         // System.out.println(num[3][0]);
         // System.out.println(num);               ////// Some ABSTRACT
@@ -434,8 +434,8 @@ class HelloWorld
         //     }
         // }
 
-        System.out.println(num);                                // [[I@6ff3c5b5
-        System.out.println(Arrays.deepToString(num));           
+        // System.out.println(num);                                // [[I@6ff3c5b5
+        // System.out.println(Arrays.deepToString(num));           
         // [
         //      [1, 2, 3, 5, 6, 8, 9, 6],
         //      [1, 2, 3, 4, 5],
@@ -561,7 +561,57 @@ class HelloWorld
         // Arrays.sort(chars);                              // special-chars 123 A-Z a-z
         // String sortedString = new String(chars);
         // System.out.println(sortedString);
+
+
+		////////////////    String Builder     ////////////////
+
+        // StringBuilder strB = new StringBuilder("Have a great day");
+        // System.out.println(strB);
+
+        // strB.deleteCharAt(2);
+        // System.out.println(strB);
+
+        // strB.delete(1, 14);
+        // System.out.println(strB);
+        // System.out.println(strB.length());
+
+        // strB.setLength(10);
+        // System.out.println("^"+strB+"^");
+        // System.out.println(strB.length());
+        // System.out.println(strB.charAt(5)=='\0');           // true : \0 - empty character
         
+
+        // strB.append(99);
+		// System.out.println(strB);
+
+		// strB.delete(0, strB.length());
+		// System.out.println(strB);
+
+		// String str = "Hello";
+		// strB.append(9==0);
+		// strB.append(str, 1, 4);
+		// System.out.println(strB);
+
+		// System.out.println(strB.capacity());
+
+		// System.out.println(strB.codePointAt(1));	// ASCII value
+		// System.out.println(strB.chars());
+        
+		// for (int i : strB.chars().toArray()) {		// i - ASCII value
+		// 	System.out.print(i+"-"+Character.toString(i)+" ");
+		// }
+
+		// System.out.println("\n"+strB);
+
+		// strB.insert(0, true);
+		// System.out.println(strB);
+
+		// System.out.println(strB.reverse());
+		// System.out.println(strB.lastIndexOf("la", 5));
+		// System.out.println(strB.lastIndexOf("eee"));
+
+		// strB.setLength(0);
+		// System.out.println(strB);
     }  
 }
 
