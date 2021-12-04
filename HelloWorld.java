@@ -168,10 +168,10 @@ class HelloWorld
         // */
 
         // int x = 33;
-        // int y = 45;
+        // float y = 45.1f;
         
         // int sq = (x+y)*(x+y);
-        // int s = y/x;                 // 1 if one of them is of float/double type ==> typecast & then use
+        // int s = y/x;         // ERROR - if one of them is of float/double type ==> typecast & then use
         // double s = y/x;              // y/x gives integer unless one of them is of float/double type
         // System.out.println(s);       // 1 ==> 1.0
         // //                           // result of typecast double 1 ==> 1.0  
@@ -190,12 +190,16 @@ class HelloWorld
         //     odd & 1  ==> ...1 & .001 = 0.01 ==> 1                 //  System.out.println(13&1); ==> 1
         //     even & 1 ==> ...0 & .001 = 0.00 ==> 0                 //  System.out.println(14&1); ==> 0
 
+        // int num = 9;
+        // if((num & 1) == 1){
+        //     System.out.println("Odd");
+        // }
+
         //     bitwise operators : >> (right-shift) , << left-shift
         //     4>>2 ==> 0100 -> 0010 -> 0001 ==> 1                   //  Simply divide by 2
         //     4<<2 ==> 0100 -> 1000 -> 1 0000 ==> 16                //  Simply multiply by 2
 
         //     System.out.println(4<<2);             // 16
-
 
 
 
@@ -280,7 +284,7 @@ class HelloWorld
 
         // /*
 
-        //     ternary Operator    (condition) ?( result of true) : (result of false)
+        //     ternary Operator    (condition) ? (result of true) : (result of false)
 
         // */
 
@@ -302,16 +306,16 @@ class HelloWorld
         // switch (ch0) 
         // {
         //     case 'a':
-        //         System.out.println("its 'a'");
+        //         System.out.println("it's 'a'");
         //         break;
         //     case '@':
-        //         System.out.println("its '@'");
+        //         System.out.println("it's '@'");
         //         break;
         //     case '#':
         //     case '$':
         //         System.out.println("it may be '#' or '$'");
         //     default:
-        //         System.out.println("its neither 'a' nor '@'");
+        //         System.out.println("it's neither 'a' nor '@'");
         // }
 
 
@@ -326,7 +330,7 @@ class HelloWorld
         //     {
         //         // initialization executes only once                ==> can  be empty => infinite loop
         //         // condition executes every time before code block
-        //         // reinitializaion executes everytime but at the end of code block
+        //         // re-initialization executes every-time but at the end of code block
         //     }
 
         // int i,j;
@@ -365,7 +369,7 @@ class HelloWorld
         //     {
         //         // code
 
-        //         reinitializaion
+        //         re-initialization
         //     }
 
         // */
@@ -381,7 +385,7 @@ class HelloWorld
         //     {
         //         // code
 
-        //         //reinitializaion
+        //         //re-initialization
 
         //     }while(condition)
 
@@ -398,7 +402,7 @@ class HelloWorld
 
         //     OR
 
-        //     int[] nums = new datatypes[n]
+        //     int[] nums = new datatype[n]
         // */
         
         // int nums[] = {9,3,7,0};
@@ -414,12 +418,12 @@ class HelloWorld
         // }
 
 
-        // int num[][]={
-        //     {1,2,3,5,6,8,9,6},
-        //     {1,2,3,4,5},
-        //     {3,5},
-        //     {0}
-        // };
+        int num[][]={
+            {1,2,3,5,6,8,9,6},
+            {1,2,3,4,5},
+            {3,5},
+            {0}
+        };
 
         // System.out.println(num[3][0]);
         // System.out.println(num);               ////// Some ABSTRACT
@@ -430,20 +434,26 @@ class HelloWorld
         //     }
         // }
 
-        // System.out.println(Arrays.deepToString(num));      
-        //                                  // [[1, 2, 3, 5, 6, 8, 9, 6], [1, 2, 3, 4, 5], [3, 5], [0]]
+        System.out.println(num);                                // [[I@6ff3c5b5
+        System.out.println(Arrays.deepToString(num));           
+        // [
+        //      [1, 2, 3, 5, 6, 8, 9, 6],
+        //      [1, 2, 3, 4, 5],
+        //      [3, 5],
+        //      [0]
+        // ]
 
 //////////////////////////////////////////////    Strings    /////////////////////////////////////////////
 
 
         // /*
             
-        //     Strings always in ""
-        //     while char always in ''
+        //     * Strings always in ""
+        //     * char always in ''
 
         //     String animal1 = new String("Dog")
 
-        //     /// creates string in both pool area(if already not available) & Heap area(always) as well.
+        //     /// creates string in both pool area(if it's not available) & Heap area(always) as well.
 
         //     String animal2 = "cat"
         //     /// creates in only pool area if not available
@@ -471,19 +481,22 @@ class HelloWorld
         //     ////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        //     String name1 = "John Doe";
-        //     String name2 = "John Doe";
-        //     String name0 = new String("John Doe");
+        // String name1 = "John Doe";
+        // String name2 = "John Doe";
+        // String name0 = new String("John Doe");
 
+
+        //     // "==" matches string as well as location/pointer
+        //     System.out.println(name1 == name2 );              //    true
+        //     System.out.println(name1 == name0 );              //    false
 
         //     // "equals" matches string
         //     System.out.println(name1.equals(name2) );         //    true
         //     System.out.println(name1.equals(name0) );         //    true
-    
-        
-        //     // "==" matches string as well as location
-        //     System.out.println(name1 == name2 );              //    true
-        //     System.out.println(name1 == name0 );              //    false
+
+        //      // "compareTo" matches string
+        //      System.out.println(name1.compareTo(name2));      //      0
+        //      System.out.println(name1.compareTo(name0));      //      0
 
 
         //     // STRINGS ARE IMMUTABLE // string can't be modified once declared
@@ -543,11 +556,11 @@ class HelloWorld
 
         // Sorted String :
         
-        String originalString = "Shinjuku-ku Tokyo,160-8484".toLowerCase();
-        char[] chars = originalString.toCharArray();
-        Arrays.sort(chars);                              // special-chars 123 A-Z a-z
-        String sortedString = new String(chars);
-        System.out.println(sortedString);
+        // String originalString = "Zhinjuku-ku tokyo,160-8484";
+        // char[] chars = originalString.toCharArray();
+        // Arrays.sort(chars);                              // special-chars 123 A-Z a-z
+        // String sortedString = new String(chars);
+        // System.out.println(sortedString);
         
     }  
 }

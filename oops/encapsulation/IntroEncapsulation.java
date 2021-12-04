@@ -4,9 +4,9 @@
 //
 //      2.  helps to control modification of our data fields
 //
-//      3.  hepls to decouple components of system , these decoupled components can be developed/tested
-//          /debugged independently & concurrently. and any changes in paricular component do not have effect 
-//          on other components
+//      3.  helps to decouple components of system , these decoupled components can be developed/tested
+//          /debugged independently & concurrently. and any changes in particular component do not have 
+//          effect on other components
 //
 //
 //      Encapsulation refers to the bundling of related fields & methods together. this allows us to achieve 

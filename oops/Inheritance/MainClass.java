@@ -4,8 +4,9 @@
 //      1.  for child only one class can be parent.
 //      2.  super adds parent's method in children.
 //
-//      3.  constructor of parent is always called regardless of however constructor in child, from child's 
-//          constructor
+//      3.  constructor of parent is always called regardless of struct. of constructor in child, from 
+//          child's constructor
+// 
 //          super(arguments) ==> calls parent constructor with arguments
 //          otherwise        ==> calls parent constructor without arguments i.e. super()    
 //

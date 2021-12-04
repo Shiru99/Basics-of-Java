@@ -34,7 +34,7 @@ public class MainClass {
         //////////////////////////////////   VARIABLE     //////////////////////////////
         
         // String name = "John Doe";
-        // name = "Jenny Doe";              // creates new string and 'name' variable will point this new String
+        // name = "Jenny Doe";          // creates new string and 'name' variable will point this new String
 
         // final String NAME = "Jerry..!!!";   
         // name = "John";                       // Error
@@ -54,7 +54,7 @@ public class MainClass {
         Student s2 = new Student("Dheridhar");
         System.out.println(s2.NAME);
         System.out.println(s2.ROLL_NUMBER);
-        // s2.ROLL_NUMBER , s2.marks = 1,99 ;                        // ERROR 
+        // s2.ROLL_NUMBER , s2.marks = 199 ;                        // ERROR 
         
 
         //////////////////////////////////   Object     //////////////////////////////
@@ -64,7 +64,7 @@ public class MainClass {
         System.out.println(s3.marks);
         s3.marks = 99;
         System.out.println(s3.marks);
-        // reference "s3" can be fixed but variable in it are not.
+        // reference "s3" can be fixed but variables associated with it are not.
     }
 
 }

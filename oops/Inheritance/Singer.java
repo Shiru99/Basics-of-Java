@@ -14,7 +14,7 @@ public class Singer extends Person {
     }
 
     public static void laugh(){             // method of class not of object
-        // System.out.println("Singer"+name+"is laughing.");    // bz name is object variable not class variable
+        // System.out.println("Singer "+name+" is laughing.");    // bz name is object variable not class variable
         System.out.println("Singer is laughing.");
     }
 }
