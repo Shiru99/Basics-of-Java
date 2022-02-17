@@ -563,55 +563,55 @@ class HelloWorld
         // System.out.println(sortedString);
 
 
-		////////////////    String Builder     ////////////////
+	////////////////    String Builder     ////////////////
 
-        // StringBuilder strB = new StringBuilder("Have a great day");
-        // System.out.println(strB);
+        StringBuilder strB = new StringBuilder("Have a great day");
+        System.out.println(strB);
 
-        // strB.deleteCharAt(2);
-        // System.out.println(strB);
+        strB.deleteCharAt(2);
+        System.out.println(strB);
 
-        // strB.delete(1, 14);
-        // System.out.println(strB);
-        // System.out.println(strB.length());
+        strB.delete(1, 14);
+        System.out.println(strB);
+        System.out.println(strB.length());
 
-        // strB.setLength(10);
-        // System.out.println("^"+strB+"^");
-        // System.out.println(strB.length());
-        // System.out.println(strB.charAt(5)=='\0');           // true : \0 - empty character
+        strB.setLength(10);
+        System.out.println("^"+strB+"^");
+        System.out.println(strB.length());
+        System.out.println(strB.charAt(5)=='\0');           // true : \0 - empty character
         
 
-        // strB.append(99);
-		// System.out.println(strB);
+        strB.append(99);
+        System.out.println(strB);
 
-		// strB.delete(0, strB.length());
-		// System.out.println(strB);
+        strB.delete(0, strB.length());
+        System.out.println(strB);
 
-		// String str = "Hello";
-		// strB.append(9==0);
-		// strB.append(str, 1, 4);
-		// System.out.println(strB);
+        String str = "Hello";
+        strB.append(9==0);
+        strB.append(str, 1, 4);
+        System.out.println(strB);
 
-		// System.out.println(strB.capacity());
+        System.out.println(strB.capacity());
 
-		// System.out.println(strB.codePointAt(1));	// ASCII value
-		// System.out.println(strB.chars());
-        
-		// for (int i : strB.chars().toArray()) {		// i - ASCII value
-		// 	System.out.print(i+"-"+Character.toString(i)+" ");
-		// }
+        System.out.println(strB.codePointAt(1));	// ASCII value
+        System.out.println(strB.chars());
 
-		// System.out.println("\n"+strB);
+        for (int i : strB.chars().toArray()) {		// i - ASCII value
+                System.out.print(i+"-"+Character.toString(i)+" ");
+        }
 
-		// strB.insert(0, true);
-		// System.out.println(strB);
+        System.out.println("\n"+strB);
 
-		// System.out.println(strB.reverse());
-		// System.out.println(strB.lastIndexOf("la", 5));
-		// System.out.println(strB.lastIndexOf("eee"));
+        strB.insert(0, true);
+        System.out.println(strB);
 
-		// strB.setLength(0);
-		// System.out.println(strB);
+        System.out.println(strB.reverse());
+        System.out.println(strB.lastIndexOf("la", 5));
+        System.out.println(strB.lastIndexOf("eee"));
+
+        strB.setLength(0);
+        System.out.println(strB);
     }  
 }
 

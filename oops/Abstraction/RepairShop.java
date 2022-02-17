@@ -54,7 +54,7 @@ public class RepairShop{
         Benz b1 = new Benz();
         b1.breaking();
 
-        // without abstrction :
+        // without abstraction :
 
             repairCar(a1);      //  Car is repaired
             repairCar(b1);      //  Car is repaired
