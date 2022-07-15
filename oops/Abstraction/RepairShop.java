@@ -32,13 +32,13 @@ public class RepairShop{
 
     // without abstrction :
 
-        // public static void repairCar(Audi a){
-        //     System.out.println("Audi is repaired");
-        // }
+        public static void repairAudi(Audi a){
+            System.out.println("Audi is repaired");
+        }
 
-        // public static void repairCar(Benz b){
-        //     System.out.println("Benz is repaired");
-        // }
+        public static void repairBenz(Benz b){
+            System.out.println("Benz is repaired");
+        }
 
     // with abstraction :
             
@@ -55,6 +55,12 @@ public class RepairShop{
         b1.breaking();
 
         // without abstraction :
+
+            repairAudi(a1);      //  Audi is repaired
+            repairBenz(b1);      //  Benz is repaired
+
+                
+        // with abstraction :
 
             repairCar(a1);      //  Car is repaired
             repairCar(b1);      //  Car is repaired
