@@ -8,4 +8,7 @@ public class Dog extends Pet{
         System.out.println("Dog is walking");
     }
     
+    public void bark(){
+        System.out.println("Dog is barking");
+    }
 }
