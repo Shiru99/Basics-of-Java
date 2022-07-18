@@ -8,6 +8,8 @@ public class ExceptionHandling {
 
         try 
         {   
+            // System.exit(0);
+            // return ;
             System.out.println(array[7]); // Index 7 out of bounds for length 5 (Remove this error.!!)
         }  
         catch (ArrayIndexOutOfBoundsException e) 
