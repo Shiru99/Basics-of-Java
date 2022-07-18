@@ -25,28 +25,35 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 package oops.Packages;
-
-// import oops.Packages.models.Student;
-// import oops.Packages.models.Teacher;
 
 import oops.Packages.models.*;
 
 public class MainClass {
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
-        boolean isEntered = true;
-        
-        Student stud1 = new Student("Rugved"); 
-        // Student object with name - Rugved has been created Successfully.
-        Teacher tech1 = new Teacher("Atharv"); 
-        //  Teacher object with name - Atharv has been created Successfully.
+        Student stud1 = new Student("Rigveda");
+        Teacher teach1 = new Teacher();
+        CSEStudent cseStud1 = new CSEStudent("Ranchhoddas");
 
+        // Access modifier from outside the package
+        checkAccessModifiers(stud1);
 
-        // Similarly Scanner class works
-        
+        // Access modifier from outside the package through child class (inheritance)
+        cseStud1.checkAccessModifiers();
+
+        // Access modifier from inside the package
+        teach1.checkAccessModifiers(stud1);
+
+        // Access modifier from class
+        stud1.checkAccessModifiers();
+    }
+
+    // Access modifier from outside the package
+    public static void checkAccessModifiers(Student s) {
+        // s.setName(s.getName());  // ERROR
+        // s.sayGoodMorning();      // ERROR
+        // s.getName();             // ERROR
+        s.sayHello();
     }
 }
