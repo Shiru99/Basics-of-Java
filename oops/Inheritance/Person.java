@@ -6,11 +6,12 @@ public class Person {
     public String age="Null-String";      // String 
 
     public Person(){
-        System.out.println("person - Constructor without arguments");
+        this.name="Null-String";
+        System.out.println("Person-constructor without arguments");
     }
     public Person(String name){
         this.name = name;
-        System.out.println("person - Constructor with arguments");
+        System.out.println("Person-constructor with arguments");
     }
 
     public void walk(){
