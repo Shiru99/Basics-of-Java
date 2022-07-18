@@ -3,9 +3,9 @@
 //      1.  Singleton pattern is mostly used in multi-treaded & database application. It is used in logging,
 //          caching,thread pools,configuration settings,etc 
 //      2.  How can it achieved ?
-//              I.  make constructor private // so none can access class & create object
-//              II. create a single object in same class
-//              III.Give access to this object
+//              I.   make constructor private                // so no class can access & create object
+//              II.  create a single object in same class
+//              III. Give access to this object
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
