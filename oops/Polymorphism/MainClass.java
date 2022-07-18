@@ -37,10 +37,15 @@ public class MainClass {
 
         // RUN-TIME polymorphism : in RTP it checks walk fn in original object i.e. Doggy (here)
 
+
         doggy.bark();
         // petty.bark();   // error - undefined method bark()
 
-        System.out.println(petty.name+"\t"+doggy.name);         // PETTT   DOGGG
+
+        doggy.petName();
+        petty.petName();
+        System.out.println(petty.name);         // PETTT
+        System.out.println(doggy.name);         // DOGGG
     }
     
 }
