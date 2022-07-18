@@ -5,13 +5,11 @@
 //      
 //      Types of polymorphism:
 //
-//          1.  RUN-TIME polymorphism (Dynamic Binding/Late Binding/
-//                              Overriding: same method with same parameters or signature ) : 
-//              - slower
+//          1.  RUN-TIME polymorphism [SLOWER] (Dynamic Binding/Late Binding/Overriding: methods with same parameters  
+//              & signature) : 
 //
-//          2.  COMPILE-TIME polymorphism (Static Binding/Early Binding/
-//                              Overloading: same method with different parameters or signature ) :
-//              - faster
+//          2.  COMPILE-TIME polymorphism [FASTER] (Static Binding/Early Binding/Overloading: methods with different   
+//              parameters or signature) :
 //
 //
 //         NOTE : variables doesn't get override, variables get hidden
@@ -22,30 +20,26 @@
 
 package oops.Polymorphism;
 
-
 public class MainClass {
-
     public static void main(String[] args) {
         Dog doggy = new Dog();
-        
         Pet petty = doggy;
 
-        doggy.walk();
-        petty.walk();            
-        // COMPILE-TIME polymorphism : in CTP it checks if walk fn is there in petty
-        //                             (if no(no means not even in its parent) ==> gives error)
-
-        // RUN-TIME polymorphism : in RTP it checks walk fn in original object i.e. Doggy (here)
-
-
-        doggy.bark();
+        
+        // COMPILE-TIME polymorphism 
         // petty.bark();   // error - undefined method bark()
+        doggy.bark();   // Dog is barking
 
 
-        doggy.petName();
-        petty.petName();
-        System.out.println(petty.name);         // PETTT
-        System.out.println(doggy.name);         // DOGGG
+        // RUN-TIME polymorphism :
+        doggy.walk();   // Dog is walking
+        petty.walk();   // Dog is walking
+
+
+        // variables doesn't get override, variables get hidden
+        doggy.petName();    // Pet name is PET-PET
+        petty.petName();    // Pet name is PET-PET
+        System.out.println(petty.name);         // PET
+        System.out.println(doggy.name);         // DOG
     }
-    
 }
