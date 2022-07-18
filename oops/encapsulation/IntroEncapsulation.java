@@ -22,14 +22,14 @@ public class IntroEncapsulation {
 
     public static void main(String[] args) {
         Student stud1 = new Student();
-        stud1.name = "RanChodDas";
+        stud1.name = "Ranchhoddas";
 
         System.out.println(stud1.name);
 
-        stud1.setEnroll(100);                             // You havn't paid completely.!
+        stud1.setEnroll(100);                             // You haven't paid completely.!
         System.out.println(stud1.getPaidAmount());        // 100
 
-        stud1.setEnroll(100);                             // You havn't paid completely.!
+        stud1.setEnroll(100);                             // You haven't paid completely.!
         System.out.println(stud1.getPaidAmount()); 
     }
 }

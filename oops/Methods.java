@@ -10,9 +10,8 @@
 
 //           pass by value or pass by reference :
 
-//         1. for primitive datatypes it's pass by value
-//         2. for non-primitive it's pass by reference
-//                    e.g for dog1 object of Dog class
+//         1. Primitive data-types : pass by value
+//         2. Non-primitive data-types : pass by reference
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +24,7 @@ public class Methods {
 
     public static void main(String args[])
     {
-        fun();                                           // from static fns only static fn can be called
+        fun();                                  // from static fns only static fn can be called
         System.out.println(maxOF(33,77));    
         System.out.println(maxOF(33,77,99));       
         fun();
@@ -42,7 +41,7 @@ public class Methods {
         else return b;
     }
 
-    static int maxOF(int a, int b,int c)           /// method overloading  // only different parameters/args
+    static int maxOF(int a, int b, int c)  // method overloading - only different parameters/args
     {
         if (a>b) {
             if (a>c) return a;

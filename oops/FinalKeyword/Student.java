@@ -7,8 +7,8 @@ public class Student {
     int marks;
 
     {
-        ROLL_NUMBER = 0;
-        marks = 0;
+        ROLL_NUMBER = 99;
+        marks = 99;
     }
 
     public Student(){        // error: cannot assign a value to final variable NAME

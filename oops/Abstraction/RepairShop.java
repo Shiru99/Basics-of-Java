@@ -27,28 +27,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 package oops.Abstraction;
 
-public class RepairShop{
-
-
-    // without abstrction :
-
-        public static void repairAudi(Audi a){
-            System.out.println("Audi is repaired");
-        }
-
-        public static void repairBenz(Benz b){
-            System.out.println("Benz is repaired");
-        }
-
-    // with abstraction :
-            
-        public static void repairCar(Cars c){
-            System.out.println("Car is repaired");
-        }
+public class RepairShop {
 
     public static void main(String[] args) {
-        
-        
+
         Audi a1 = new Audi();
         a1.accelerating();
         Benz b1 = new Benz();
@@ -56,19 +38,30 @@ public class RepairShop{
 
         // without abstraction :
 
-            repairAudi(a1);      //  Audi is repaired
-            repairBenz(b1);      //  Benz is repaired
+        repairAudi(a1); // Audi is repaired
+        repairBenz(b1); // Benz is repaired
 
-                
         // with abstraction :
 
-            repairCar(a1);      //  Car is repaired
-            repairCar(b1);      //  Car is repaired
+        repairCar(a1); // Car is repaired
+        repairCar(b1); // Car is repaired
 
-        // Cars c1 = new Cars();       // error      // object can't be created of abstract classes
+        // Cars c1 = new Cars(); // error // object can't be created of abstract classes
 
-        a1.Khatara();           //  your car is Khatara...
+        a1.Khatara(); // your car is Khatara...
 
     }
-    
+
+
+    public static void repairAudi(Audi a) {
+        System.out.println("Audi is repaired");
+    }
+
+    public static void repairBenz(Benz b) {
+        System.out.println("Benz is repaired");
+    }
+
+    public static void repairCar(Cars c) {
+        System.out.println("Car is repaired");
+    }
 }
