@@ -1,4 +1,4 @@
-package oops;
+package oops.DifferentClasses;
 
 public class LocalClass {
     public static void main(String[] args) 

@@ -11,9 +11,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-package oops.staticDetails;
+package oops.DifferentClasses;
 
-public class MainClass {
+public class StaticClass {
 
     static {
         System.out.println("1. it's running before main-method");
@@ -38,12 +38,12 @@ public class MainClass {
 
 
         /* Static Inner Class */
-        StaticVsInnerClass.StaticClass staticObj1 = new StaticVsInnerClass.StaticClass();
-        StaticVsInnerClass.StaticClass staticObj2 = new StaticVsInnerClass.StaticClass();
+        StaticVsInnerClass.StaticInnerClass staticObj1 = new StaticVsInnerClass.StaticInnerClass();
+        StaticVsInnerClass.StaticInnerClass staticObj2 = new StaticVsInnerClass.StaticInnerClass();
         System.out.println(staticObj1.E + " - " + staticObj2.E); // 2.71828 - 2.71828
         staticObj1.E = 2.71f;
         System.out.println(staticObj1.E + " - " + staticObj2.E); // 2.71 - 2.71
-        StaticVsInnerClass.StaticClass.E = 2.7f;
+        StaticVsInnerClass.StaticInnerClass.E = 2.7f;
         System.out.println(staticObj1.E + " - " + staticObj2.E); // 2.7 - 2.7
     }
 
@@ -66,7 +66,7 @@ class StaticVsInnerClass {
     }
 
     // Static Inner Class
-    static public class StaticClass {
+    static public class StaticInnerClass {
         static float E = 2.71828f;
     }
 

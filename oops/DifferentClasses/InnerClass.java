@@ -1,4 +1,4 @@
-package oops.staticDetails;
+package oops.DifferentClasses;
 
 public class InnerClass {
     public static void main(String[] args) {
