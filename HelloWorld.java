@@ -203,7 +203,7 @@ class HelloWorld
 
 
 
-        //     Assignment operators : & , |
+        //     Assignment operators : = , += , -= , *= , /= , %=
             
         //     x += 1 ;                              // x = x + 1   ==> 34
         //     x |= 3 ;                              // x = x | 3   ==> 35
@@ -528,12 +528,11 @@ class HelloWorld
         // System.out.println(city.substring(1));                           // okyo
         // System.out.println(city.substring(1,3));                         // ok
 
+
         // System.out.println(city.contains("to"));                         // false
         // System.out.println(city.contains('T'));                          // ERROR (No Char)
         // System.out.println(city.contains((String)'T'));                  // ERROR
         // System.out.println(city.contains(Character.toString('T')));      // true
-
-
 
 
         // System.out.println(city.equals("tokyo"));       // false
@@ -541,10 +540,15 @@ class HelloWorld
         // System.out.println(city.concat(" to Paris"));   // Tokyo to Paris
         // String peri = city+" to bali";
         // System.out.println(peri);                       // Tokyo to bali
-        // city = "abcAbcabcAbc";
-        // System.out.println(city.replace('a','Z'));      // LbcAbcLbcAbc
-        // String fun[] = city.split("a");
-        // for (String f :fun){ System.out.println(f); }   //  empty , bcAbc , bcAbc
+
+        
+        String city = "abcAbcabcAbc";
+        // System.out.println(city.replace('a','Z'));      // ZbcAbcZbcAbc
+        String fun[] = city.split("a");
+        for (String s : fun) {
+            System.out.println(s);              //  empty , bcAbc , bcAbc
+        }
+
 
 
         // city = "Tokyo";
@@ -565,53 +569,53 @@ class HelloWorld
 
 	////////////////    String Builder     ////////////////
 
-        StringBuilder strB = new StringBuilder("Have a great day");
-        System.out.println(strB);
+        // StringBuilder strB = new StringBuilder("Have a great day");
+        // System.out.println(strB);
 
-        strB.deleteCharAt(2);
-        System.out.println(strB);
+        // strB.deleteCharAt(2);
+        // System.out.println(strB);
 
-        strB.delete(1, 14);
-        System.out.println(strB);
-        System.out.println(strB.length());
+        // strB.delete(1, 14);
+        // System.out.println(strB);
+        // System.out.println(strB.length());
 
-        strB.setLength(10);
-        System.out.println("^"+strB+"^");
-        System.out.println(strB.length());
-        System.out.println(strB.charAt(5)=='\0');           // true : \0 - empty character
+        // strB.setLength(10);
+        // System.out.println("^"+strB+"^");
+        // System.out.println(strB.length());
+        // System.out.println(strB.charAt(5)=='\0');           // true : \0 - empty character
         
 
-        strB.append(99);
-        System.out.println(strB);
+        // strB.append(99);
+        // System.out.println(strB);
 
-        strB.delete(0, strB.length());
-        System.out.println(strB);
+        // strB.delete(0, strB.length());
+        // System.out.println(strB);
 
-        String str = "Hello";
-        strB.append(9==0);
-        strB.append(str, 1, 4);
-        System.out.println(strB);
+        // String str = "Hello";
+        // strB.append(9==0);
+        // strB.append(str, 1, 4);
+        // System.out.println(strB);
 
-        System.out.println(strB.capacity());
+        // System.out.println(strB.capacity());
 
-        System.out.println(strB.codePointAt(1));	// ASCII value
-        System.out.println(strB.chars());
+        // System.out.println(strB.codePointAt(1));	// ASCII value
+        // System.out.println(strB.chars());
 
-        for (int i : strB.chars().toArray()) {		// i - ASCII value
-                System.out.print(i+"-"+Character.toString(i)+" ");
-        }
+        // for (int i : strB.chars().toArray()) {		// i - ASCII value
+        //         System.out.print(i+"-"+Character.toString(i)+" ");
+        // }
 
-        System.out.println("\n"+strB);
+        // System.out.println("\n"+strB);
 
-        strB.insert(0, true);
-        System.out.println(strB);
+        // strB.insert(0, true);
+        // System.out.println(strB);
 
-        System.out.println(strB.reverse());
-        System.out.println(strB.lastIndexOf("la", 5));
-        System.out.println(strB.lastIndexOf("eee"));
+        // System.out.println(strB.reverse());
+        // System.out.println(strB.lastIndexOf("la", 5));
+        // System.out.println(strB.lastIndexOf("eee"));
 
-        strB.setLength(0);
-        System.out.println(strB);
+        // strB.setLength(0);
+        // System.out.println(strB);
     }  
 }
 
