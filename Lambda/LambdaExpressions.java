@@ -1,6 +1,6 @@
 package Lambda;
 
-/*
+/* 1
     LambdaExpressions :
         
             The Lambda expression is used to provide the implementation of functional interface. 
@@ -65,7 +65,7 @@ public class LambdaExpressions {
         Doo doYoga = (task) -> {
             System.out.println("Lambda : Doing Yoga - " + task);
         };
-        // doYoga.doSomething("Kapal-Bharti"); // Lambda : Doing Yoga - Kapal-Bharti
+        // doYoga.doSomething("Kapalbhati"); // Lambda : Doing Yoga - Kapalbhati
         // doYoga.doNothing(); // Do Nothing
 
     }
