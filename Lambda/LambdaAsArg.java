@@ -1,7 +1,7 @@
 package Lambda;
 
 
-/*
+/* 2
 
     A functional Interface for which a lambda expression has invoked is called "target type" of lambda expression. 
     
@@ -33,6 +33,7 @@ public class LambdaAsArg {
 
         // ppl with first name initial - "J"
         printPpl(ppl, (p)-> p.getFirstName().startsWith("J"));
+        System.out.println("-------");
 
         // ppl with Age < 30
         printPpl(ppl, (p)-> p.getAge()<30);
