@@ -221,12 +221,17 @@ class HelloWorld
         // */
 
         // /*
-        //     Logical operators : && , || , !
+        //     Logical operators : && , || , ! , ^       // ^ - XOR
             
         //     true && true        ==> true
         //     false && true       ==> false
         //     false || true       ==> true
         //     ! false             ==> true
+        //     true ^ true         ==> false
+        //     false ^ true        ==> true
+        //     false ^ false       ==> false
+
+
 
 
         //     difference between & and && is :
