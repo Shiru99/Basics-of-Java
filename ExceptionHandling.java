@@ -1,3 +1,7 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class ExceptionHandling {
     public static void main(String[] args) 
     {
@@ -53,6 +57,15 @@ public class ExceptionHandling {
         }
 
         System.out.println("--------------------");
+
+        // try_resource - cleans up resources after use (close file, connection, etc)
+        try (FileInputStream fis = new FileInputStream("test.txt");) {
+            System.out.println("File opened");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("File closed");
+        }
 
     }
     
