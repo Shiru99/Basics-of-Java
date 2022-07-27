@@ -1,5 +1,9 @@
 package ReflectionAPI;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -7,7 +11,7 @@ import java.lang.reflect.Modifier;
 
 
 public class MainClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
         
         /* Get Class instance */
         // M-1 from object
@@ -67,8 +71,8 @@ public class MainClass {
 
         // M-1 : getMethods
         try {
-            Method method = clss.getMethod("isAvailable");  // only for public method
-            System.out.println(method); // public boolean ReflectionAPI.iPhoneX.isAvailable()
+            Method method = clss.getMethod("getAvailability");  // only for public method
+            System.out.println(method); // public boolean ReflectionAPI.iPhoneX.getAvailability()
         } catch (NoSuchMethodException | SecurityException e) {
             e.printStackTrace();
         }
@@ -152,6 +156,53 @@ public class MainClass {
             e.printStackTrace();
         }
     
+
+
+        /* Method Handle - A method handle is a typed, directly executable reference to an underlying method, constructor, field, or similar low-level operation, with optional transformations of arguments or return values. */
         
+
+        // get methods using method handle
+
+        Lookup lookup = MethodHandles.lookup();
+
+        try {
+
+            iPhoneX myPhone = new iPhoneX();
+
+            // Class
+
+            Class<?> iphoneClazz = lookup.findClass(iPhoneX.class.getName());
+            System.out.println(iphoneClazz); // class ReflectionAPI.iPhoneX
+
+            // Method
+
+            MethodType getterType = MethodType.methodType(boolean.class);
+            MethodType setterType = MethodType.methodType(void.class, boolean.class);
+            MethodType constructorType = MethodType.methodType(void.class);
+
+            MethodHandle getterHandle = lookup.findVirtual(iPhoneX.class, "getAvailability", getterType);
+            MethodHandle constructorHandle = lookup.findConstructor(iPhoneX.class, constructorType);
+
+            // Field
+            MethodHandle priceReader = lookup.findGetter(iPhoneX.class, "price", int.class);
+            MethodHandle priceWriter = lookup.findSetter(iPhoneX.class, "price", int.class);
+
+
+            // Invoke method:
+            int price = (int) priceReader.invoke(myPhone);
+            System.out.println(price); // 99,999
+            priceWriter.invoke(myPhone, price+100);
+            System.out.println(myPhone.price);  // 100099
+
+            // private field
+            Lookup lookup2 = MethodHandles.privateLookupIn(iPhoneX.class,lookup);
+            MethodHandle privatePriceWriter = lookup2.findSetter(iPhoneX.class, "price", int.class); 
+            privatePriceWriter.invoke(myPhone, price+201);
+            System.out.println(myPhone.price);  // 100200
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

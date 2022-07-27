@@ -47,8 +47,12 @@ class iPhoneX extends SmartPhone {
         return price;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailability() {
         return isAvailable;
+    }
+
+    public void setAvailability(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }
 
