@@ -1,13 +1,11 @@
 package ReflectionAPI.ORM;
 
 
-import java.sql.SQLException;
-
 import ReflectionAPI.ORM.Model.Person;
 import ReflectionAPI.ORM.ORM.EntityManger;
 
 public class MainClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // MetaModel<Person> metaModel = new MetaModel<>(Person.class);
         // System.out.println(metaModel.getClazz());
@@ -32,19 +30,29 @@ public class MainClass {
         Person p2 = new Person("Jane", 24, "New York");
         Person p3 = new Person("Jack", 25, "Tokyo");
          
-        // try {
-        //     entityManger.insert(p1);
-        //     entityManger.insert(p2);
-        //     entityManger.insert(p3);
-        // } catch (SQLException e) {
-        //     e.printStackTrace();
-        // }
+
+        entityManger.insert(p1);
+        entityManger.insert(p2);
+        entityManger.insert(p3);
+        
 
         
         /* Read on DB */
 
-        Person p = entityManger.find(Person.class,"James");
-        System.out.println(p);
+        Person p4 = entityManger.find(Person.class,"John");
+        Person p5 = entityManger.find(Person.class,"James");
+
+        System.out.println(p5);
+
+
+        /* Delete from DB */
+
+        Person p6 = entityManger.delete(Person.class, "John");
+        Person p7 = entityManger.delete(Person.class, "James");
+        System.out.println("Deleted : " + p7);
+
+        Person p8 = entityManger.delete(Person.class, "Jane");
+        Person p9 = entityManger.delete(Person.class, "Jack");
 
     }
 }

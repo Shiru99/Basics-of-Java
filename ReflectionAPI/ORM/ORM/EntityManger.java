@@ -10,8 +10,10 @@ public interface EntityManger<T> {
         return new EntityMangerImp<T>(clazz);
     }
 
-    void insert(T t) throws SQLException;
+    void insert(T t) throws Exception;
 
-    T find(Class<T> clazz, Object primaryKey);
+    T find(Class<T> clazz, Object primaryKey) throws Exception;
+
+    T delete(Class<T> clazz, Object primaryKey) throws Exception;
 
 }

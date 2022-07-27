@@ -68,7 +68,12 @@ public class MetaModel<T> {
 
     public String buildSelectQuery(Object primaryKey) {
         // select * from table where primaryKey = ?
-        
+
         return "select * from " + this.getClazz().getSimpleName() + " where " + getPrimaryKey().getName() + " = ?";
+    }
+
+    public String buildDeleteQuery(Object primaryKey) {
+        // delete from table where primaryKey = ?
+        return "delete from " + this.getClazz().getSimpleName() + " where " + getPrimaryKey().getName() + " = ?";
     }
 }

@@ -104,28 +104,22 @@ public class EntityMangerImp<T> implements EntityManger<T> {
     }
 
     @Override
-    public T find(Class<T> clazz, Object primaryKey) {
+    public T find(Class<T> clazz, Object primaryKey) throws Exception {
 
         MetaModel<T> metaModel = new MetaModel(clazz);
         String rawQuery = metaModel.buildSelectQuery(primaryKey);
 
-        try {
-            PreparedStatement statement = prepareStatementWith(rawQuery).andPrimaryKey(primaryKey);
-            System.out.println("Statement : "+statement);
-            ResultSet resultSet = statement.executeQuery();
-            System.out.println("ResultSet : "+resultSet);
-            if(resultSet.next()){
-                return buildInstanceFrom(resultSet, clazz);
-            }else{
-                System.out.println("No result found");
-                return null;
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
+        PreparedStatement statement = prepareStatementWith(rawQuery).andPrimaryKey(primaryKey);
+        System.out.println("Statement : "+statement);
+        ResultSet resultSet = statement.executeQuery();
+        System.out.println("ResultSet : "+resultSet);
+        if(resultSet.next()){
+            return buildInstanceFrom(resultSet, clazz);
+        }else{
+            System.out.println("No result found");
+            return null;
         }
 
-        return null;
     }
 
     private T buildInstanceFrom(ResultSet resultSet, Class<T> clazz) throws Exception {
@@ -161,5 +155,28 @@ public class EntityMangerImp<T> implements EntityManger<T> {
         }
 
         return t;
+    }
+
+    @Override
+    public T delete(Class<T> clazz, Object primaryKey) throws Exception {
+        
+        MetaModel<T> metaModel = new MetaModel(clazz);
+        String rawQuery = metaModel.buildDeleteQuery(primaryKey);
+
+        
+        PreparedStatement statement = prepareStatementWith(rawQuery).andPrimaryKey(primaryKey);
+        System.out.println("Statement : "+statement);
+
+        T t = find(clazz, primaryKey);
+        int affectedLines = statement.executeUpdate();
+
+        if(affectedLines >= 1){
+            System.out.println(affectedLines + " affected lines");
+            return t;
+        }else{
+            System.out.println("No result found");
+            return null;
+        }
+       
     }
 }
