@@ -7,7 +7,9 @@ public class AbstractionNInterface {
         iPhoneX myIPhoneX = new iPhoneX();
         Nokia_1100 myNokia1100 = new Nokia_1100();
 
-        myIPhoneX.callContact();
+        System.out.println("----------------------------------------------------");
+        myIPhoneX.takeSelfie();
+        System.out.println("----------------------------------------------------");
         myNokia1100.callContact();
 
         GPS myGPS = new iPhoneX();
@@ -19,8 +21,11 @@ public class AbstractionNInterface {
 
 class iPhoneX extends SmartPhone {
 
-    public void sendMessage() {
-        System.out.println("iPhoneX can send message");
+    @Override
+    public void takeSelfie() {
+        System.out.println("Your iPhoneX is taking selfie");
+        initiateSelfieAction();
+        System.out.println("Your iPhoneX is done taking selfie");
     }
 
     public void trackLocation() {
@@ -30,9 +35,46 @@ class iPhoneX extends SmartPhone {
 
 abstract class SmartPhone extends Phone implements Camera, GPS {
 
-    @Override
-    public void takeSelfie() {
-        System.out.println("SmartPhone can take selfie");
+    protected void initiateSelfieAction() {
+        turnOnTorch();
+        takeAPic();
+        playPicClickSound();
+        turnOffTorch();
+        processThePic();
+        storeToLocalStorage();
+        addPreviewToCameraApp();
+    }
+
+    private void turnOnTorch() {
+        System.out.println("Torch functionality initiated");
+    }
+
+    private void takeAPic() {
+        System.out.println("Collecting inputs from camera sensors");
+    }
+
+    private void playPicClickSound() {
+        System.out.println("Playing sound");
+    }
+
+    private void turnOffTorch() {
+        System.out.println("Torch functionality ended");
+    }
+
+    private void processThePic() {
+        System.out.println("Processing the picture");
+    }
+
+    private void addPreviewToCameraApp() {
+        System.out.println("Adding preview to camera app");
+    }
+
+    private void storeToLocalStorage() {
+        System.out.println("Storing the picture to local storage");
+    }
+
+    public void sendMessage() {
+        System.out.println("iPhoneX can send message");
     }
 
     public void phoneDetails() {
