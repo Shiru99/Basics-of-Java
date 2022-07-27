@@ -1,17 +1,27 @@
 package Generics;
 
-import java.rmi.server.ObjID;
 import java.util.*;
 
 public class GenericsINInheritance {
 
     private static void printListWithoutGenerics(List l){
         l.add("Anything int/String");
+        l.add(0);
+        System.out.println("--------");
         l.forEach(System.out::println);
         System.out.println("--------");
-        l.remove("Anything int/String");
+       
 
-        Object a = l.get(0);
+        Object a = l.get(2);
+        String b = (String) l.get(2);
+        // Integer c = (Integer) l.get(2);     // Run-time error
+
+        Object d = l.get(3);
+        // String e = (String) l.get(3);    // Run-time error
+        Integer f = (Integer) l.get(3);
+
+        l.remove("Anything int/String");
+        l.remove(0);
     }
 
     /*
@@ -37,12 +47,20 @@ public class GenericsINInheritance {
     private static void printList(List<?> l){   // READ only
 
         // l.add("Anything int/String");        // Error (point 2) 
+        // l.add(new Object());                 // Error
         
-        l.forEach(System.out::println);
+        System.out.println("------------");
+        for (Object object : l) {
+            System.out.println(object);
+        }
+
+        // for (Number num : l) {         // Error
+        //     System.out.println(num);
+        // }
+
         System.out.println("------------");
 
         Object a = l.get(0);
-        // l.add(new Object());                 // Error
     }
 
 
@@ -53,7 +71,20 @@ public class GenericsINInheritance {
 
         // l.add("Anything int/String");        // Error (point 2)
         // l.add(99);                           // Error
-        l.forEach(System.out::println);
+
+        System.out.println("------------");
+        for (Object object : l) {
+            System.out.println(object);
+        }
+
+        for (Number num : l) {
+            System.out.println(num);
+        }
+
+        // for (Integer i : l) {            // Error
+        //     System.out.println(i);
+        // }
+
         System.out.println("------------");
 
         Object a = l.get(0);
@@ -79,7 +110,19 @@ public class GenericsINInheritance {
 
         // READ :
 
-        l.forEach(System.out::println);
+        System.out.println("------------");
+        for (Object object : l) {
+            System.out.println(object);
+        }
+
+        // for (Number num : l) {           // Error
+        //     System.out.println(num);
+        // }
+
+        // for (Integer i : l) {            // Error
+        //     System.out.println(i);
+        // }
+
         System.out.println("------------");
 
         Object a = l.get(0);
