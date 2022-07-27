@@ -65,4 +65,10 @@ public class MetaModel<T> {
 
         return "insert into " + this.getClazz().getSimpleName() + " " + columnElements + " values " + QuestionMarkElement;
     }
+
+    public String buildSelectQuery(Object primaryKey) {
+        // select * from table where primaryKey = ?
+        
+        return "select * from " + this.getClazz().getSimpleName() + " where " + getPrimaryKey().getName() + " = ?";
+    }
 }

@@ -32,16 +32,19 @@ public class MainClass {
         Person p2 = new Person("Jane", 24, "New York");
         Person p3 = new Person("Jack", 25, "Tokyo");
          
-        try {
-            entityManger.insert(p1);
-            entityManger.insert(p2);
-            entityManger.insert(p3);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     entityManger.insert(p1);
+        //     entityManger.insert(p2);
+        //     entityManger.insert(p3);
+        // } catch (SQLException e) {
+        //     e.printStackTrace();
+        // }
 
         
-        /* Write on DB */
+        /* Read on DB */
+
+        Person p = entityManger.find(Person.class,"James");
+        System.out.println(p);
 
     }
 }

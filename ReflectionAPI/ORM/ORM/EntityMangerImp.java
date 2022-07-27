@@ -1,8 +1,11 @@
 package ReflectionAPI.ORM.ORM;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ReflectionAPI.ORM.Utils.ColumnField;
@@ -21,7 +24,7 @@ public class EntityMangerImp<T> implements EntityManger<T> {
 
         try {
             PreparedStatement statement = prepareStatementWith(rawQuery).andParameters(t);
-            System.out.println(statement);
+            System.out.println("Statement : "+statement);
             statement.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,12 +85,81 @@ public class EntityMangerImp<T> implements EntityManger<T> {
                     System.out.println("Unsupported type");
                 }
 
-                
             }
 
             return this.statement;
         }
 
+        public PreparedStatement andPrimaryKey(Object primaryKey) throws SQLException {
+            if (primaryKey.getClass() == String.class) {
+                statement.setString(1, (String) primaryKey);
+            } else {
+                System.out.println("Unsupported type for primary key");
+            }
+            return this.statement;
+        }
+
+
         
+    }
+
+    @Override
+    public T find(Class<T> clazz, Object primaryKey) {
+
+        MetaModel<T> metaModel = new MetaModel(clazz);
+        String rawQuery = metaModel.buildSelectQuery(primaryKey);
+
+        try {
+            PreparedStatement statement = prepareStatementWith(rawQuery).andPrimaryKey(primaryKey);
+            System.out.println("Statement : "+statement);
+            ResultSet resultSet = statement.executeQuery();
+            System.out.println("ResultSet : "+resultSet);
+            if(resultSet.next()){
+                return buildInstanceFrom(resultSet, clazz);
+            }else{
+                System.out.println("No result found");
+                return null;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private T buildInstanceFrom(ResultSet resultSet, Class<T> clazz) throws Exception {
+        MetaModel<T> metaModel = new MetaModel(clazz);
+        T t = clazz.getDeclaredConstructor().newInstance();
+
+        PrimaryKeyField primaryKeyField = metaModel.getPrimaryKey();
+
+        primaryKeyField.getField().setAccessible(true);
+        Class<?> primaryKeyFieldType = primaryKeyField.getField().getType();
+        String primaryKeyFieldName = primaryKeyField.getField().getName();
+
+        if( primaryKeyFieldType ==  String.class ) {
+            primaryKeyField.getField().set(t, resultSet.getString(primaryKeyFieldName));
+        } else {
+            System.out.println("Unsupported type for primary key");
+        }
+
+        for (ColumnField columnField : metaModel.getColumns()) {
+
+            columnField.getField().setAccessible(true);
+            Class<?> fieldType = columnField.getField().getType();
+            String fieldName = columnField.getField().getName();
+            
+            if( fieldType ==  String.class ) {
+                columnField.getField().set(t, resultSet.getString(fieldName));
+            } else if( fieldType == int.class ) {
+                columnField.getField().set(t, resultSet.getInt(fieldName));
+            } else {
+                System.out.println("Unsupported type");
+            }
+            
+        }
+
+        return t;
     }
 }
