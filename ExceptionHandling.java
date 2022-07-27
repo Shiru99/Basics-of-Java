@@ -1,5 +1,4 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExceptionHandling {
@@ -67,6 +66,12 @@ public class ExceptionHandling {
             System.out.println("File closed");
         }
 
+        /*
+            Checked Exception vs Unchecked Exceptions
+                
+                Checked Exception - Compiler checks for errors (All exceptions except RuntimeExceptions)
+                Unchecked Exception - Compiler doesn't check for errors (RuntimeExceptions)
+         */
     }
     
     static void fun(int one,int two) throws ArithmeticException, MyException
