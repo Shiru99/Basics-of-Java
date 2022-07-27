@@ -2,14 +2,14 @@ package ReflectionAPI.ORM.Utils;
 
 import java.lang.reflect.Field;
 
-public class ColumnFields {
+public class ColumnField {
 
     public Field field;
 
-    public ColumnFields() {
+    public ColumnField() {
     }
     
-    public ColumnFields(Field field) {
+    public ColumnField(Field field) {
         this.field = field;
     }
     

@@ -3,6 +3,7 @@ package ReflectionAPI.ORM.Utils;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import ReflectionAPI.ORM.Annotations.Column;
 import ReflectionAPI.ORM.Annotations.PrimaryKey;
@@ -31,17 +32,37 @@ public class MetaModel<T> {
         throw new IllegalArgumentException("No primary key found");
     }
 
-    public List<ColumnFields> getColumns() {
+    public List<ColumnField> getColumns() {
 
         Field[] fields = clazz.getDeclaredFields();
-        List<ColumnFields> columns = new ArrayList<>();
+        List<ColumnField> columns = new ArrayList<>();
 
         for (Field field : fields) {
             if (field.isAnnotationPresent(Column.class)) {
-                columns.add(new ColumnFields(field));
+                columns.add(new ColumnField(field));
             }
         }
 
         return columns;
+    }
+
+    public String buildInsertQuery(T t) {
+        // insert into table (column1, column2, column3) values (?, ?, ?)
+
+        String columnElements = getColumns()
+                .stream()
+                .map(ColumnField::getName)
+                .collect(Collectors.joining(", "));
+
+        columnElements = "(" + getPrimaryKey().getName() + ", " + columnElements + ")";
+
+        String QuestionMarkElement = getColumns()
+                .stream()
+                .map(columnField -> "?")
+                .collect(Collectors.joining(", "));
+
+        QuestionMarkElement = "(?, " + QuestionMarkElement + ")";
+
+        return "insert into " + this.getClazz().getSimpleName() + " " + columnElements + " values " + QuestionMarkElement;
     }
 }
