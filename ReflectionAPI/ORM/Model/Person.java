@@ -4,13 +4,13 @@ import ReflectionAPI.ORM.Annotations.Column;
 import ReflectionAPI.ORM.Annotations.PrimaryKey;
 
 public class Person{
-    @PrimaryKey
+    @PrimaryKey(name="p_id")
     private String name;
 
-    @Column(name = "age")
+    @Column(name = "c_age")
     private int age;
 
-    @Column(name = "address")
+    @Column(name = "c_address")
     private String address;
 
     public Person(){

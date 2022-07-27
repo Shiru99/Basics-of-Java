@@ -1,9 +1,6 @@
 package ReflectionAPI.ORM.ORM;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,9 +9,9 @@ import ReflectionAPI.ORM.Utils.ColumnField;
 import ReflectionAPI.ORM.Utils.MetaModel;
 import ReflectionAPI.ORM.Utils.PrimaryKeyField;
 
-public class EntityMangerImp<T> implements EntityManger<T> {
+public abstract class AbstractEntityManger<T> implements EntityManger<T> {
 
-    public EntityMangerImp(Class<T> clazz) {
+    public AbstractEntityManger(Class<T> clazz) {
     }
 
     @Override
@@ -35,12 +32,14 @@ public class EntityMangerImp<T> implements EntityManger<T> {
 
     private PreparedStatementWrapper prepareStatementWith(String rawQuery) throws SQLException  {
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:~/0/Java/Basics-of-Java/ReflectionAPI/ORM/DB-files/myTest", "sa", "");
+        Connection connection = buildConnectionToDB();
         
         PreparedStatement statement  = connection.prepareStatement(rawQuery);
         return new PreparedStatementWrapper(statement);
         
     }
+
+    public abstract Connection buildConnectionToDB() throws SQLException;
 
 
     class PreparedStatementWrapper {
@@ -130,7 +129,7 @@ public class EntityMangerImp<T> implements EntityManger<T> {
 
         primaryKeyField.getField().setAccessible(true);
         Class<?> primaryKeyFieldType = primaryKeyField.getField().getType();
-        String primaryKeyFieldName = primaryKeyField.getField().getName();
+        String primaryKeyFieldName = primaryKeyField.getName();
 
         if( primaryKeyFieldType ==  String.class ) {
             primaryKeyField.getField().set(t, resultSet.getString(primaryKeyFieldName));
@@ -142,7 +141,7 @@ public class EntityMangerImp<T> implements EntityManger<T> {
 
             columnField.getField().setAccessible(true);
             Class<?> fieldType = columnField.getField().getType();
-            String fieldName = columnField.getField().getName();
+            String fieldName = columnField.getName();
             
             if( fieldType ==  String.class ) {
                 columnField.getField().set(t, resultSet.getString(fieldName));

@@ -1,13 +1,10 @@
 package ReflectionAPI.ORM.ORM;
 
-import java.sql.SQLException;
-
-import ReflectionAPI.ORM.Model.Person;
 
 public interface EntityManger<T> {
 
-    static <T> EntityMangerImp<T> of(Class<T> clazz) {
-        return new EntityMangerImp<T>(clazz);
+    static <T> AbstractEntityManger<T> of(Class<T> clazz) {
+        return new H2EntityManager<T>(clazz);
     }
 
     void insert(T t) throws Exception;

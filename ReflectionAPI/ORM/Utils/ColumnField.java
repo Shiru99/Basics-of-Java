@@ -1,16 +1,19 @@
 package ReflectionAPI.ORM.Utils;
 
 import java.lang.reflect.Field;
+import ReflectionAPI.ORM.Annotations.Column;
 
 public class ColumnField {
 
-    public Field field;
+    private Field field;
+    private Column column;
 
     public ColumnField() {
     }
     
     public ColumnField(Field field) {
         this.field = field;
+        this.column = field.getAnnotation(Column.class);
     }
     
     public Field getField() {
@@ -22,7 +25,8 @@ public class ColumnField {
     }
     
     public String getName() {
-        return field.getName();
+        // return field.getName();
+        return column.name();
     }
 
     public Class<?> getType() {
