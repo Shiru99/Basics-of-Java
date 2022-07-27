@@ -123,5 +123,35 @@ public class MainClass {
         } catch (NoSuchFieldException | SecurityException e) {
             e.printStackTrace();
         }
+
+
+        /* Invoking method */
+
+        // 1 : static methods
+        
+        Method method;
+        try {
+            method = clss.getMethod("showOff");
+
+            if(Modifier.isStatic(method.getModifiers()))
+                method.invoke(null);
+            else 
+                System.out.println("Not static method");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        // 2. : instance methods
+
+        Class<?> clazz = iPhoneX.class;
+        try {
+            Object iPhoneObj = clazz.getDeclaredConstructor().newInstance();
+            Method m2 = clazz.getMethod("takeSelfie");
+            m2.invoke(iPhoneObj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+        
     }
 }
