@@ -1,8 +1,10 @@
 package ReflectionAPI.ORM;
 
 
+import ReflectionAPI.ORM.BeanManager.BeanManager;
 import ReflectionAPI.ORM.Model.Person;
 import ReflectionAPI.ORM.ORM.EntityManger;
+import ReflectionAPI.ORM.ORM.EntityMangerWithInject;
 
 public class MainClass {
     public static void main(String[] args) throws Exception {
@@ -24,7 +26,12 @@ public class MainClass {
 
         /* Write on DB */
 
-        EntityManger<Person> entityManger =  EntityManger.of(Person.class);
+        /* M-1 : Without Injecting Connection */
+        // EntityManger<Person> entityManger =  EntityManger.of(Person.class);
+
+        /* M-2 : With Injecting Connection */
+        BeanManager beanManager = BeanManager.getInstance();
+        EntityMangerWithInject<Person> entityManger =  beanManager.getInstance(EntityMangerWithInject.class);
 
         Person p1 = new Person("James", 22, "London");
         Person p2 = new Person("Jane", 24, "New York");
