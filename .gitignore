@@ -1,1 +1,3 @@
 *.class
+ReflectionAPI/ORM/DB-files/myTest.trace.db
+.vscode/
