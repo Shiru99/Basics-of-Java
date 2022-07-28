@@ -1,6 +1,8 @@
 package Asynchronous;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -10,9 +12,11 @@ import java.util.function.Supplier;
 public class ExTaskChaining {
     public static void main(String[] args) {
 
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
         Runnable runnableLambda = () -> System.out.println("Hello World - runnableLambda");
         Supplier<String> supplierLambda = () -> "Hello World - supplierLambda";
-        Function<String, String> functionLambda = (text) -> text + "- supplierLambda";
+        Function<String, String> functionLambda = (text) -> text + "- functionLambda";
         Consumer<String> consumerLambda = (text) -> System.out.println(text + "- consumerLambda");
         BiFunction<String, String, String> biFunctionLambda = (t1, t2) -> t1 + " " + t2 + "- from biFunctionLambda";
         BiConsumer<String, String> biConsumerLambda = (t1, t2) -> System.out
@@ -28,6 +32,21 @@ public class ExTaskChaining {
         // thenAccept
         CompletableFuture<Void> completableFuture2 = CompletableFuture.supplyAsync(supplierLambda)
                 .thenAccept(consumerLambda);
+
+        // thenApplyAsync - runs on a separate thread
+
+        CompletableFuture<String> cF = CompletableFuture.supplyAsync(supplierLambda)
+                .thenApplyAsync(functionLambda);
+        results = cF.join();
+        System.out.println("| "+results+" |");
+
+        CompletableFuture.supplyAsync(supplierLambda)
+                .thenApplyAsync(t -> {
+                    System.out.println(Thread.currentThread().getName());
+                    return null;
+                }, executor).join();
+
+        executor.shutdown();
 
         // thenRun
         CompletableFuture<Void> completableFuture3 = CompletableFuture.supplyAsync(supplierLambda)
