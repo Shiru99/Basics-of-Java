@@ -1,0 +1,4 @@
+Jul 29, 2022 9:47:21 AM LogSystem.LogToFile main
+SEVERE: SEVERE Log - Hello World
+Jul 29, 2022 9:47:21 AM LogSystem.LogToFile main
+WARNING: WARNING Log - Hello World
