@@ -41,5 +41,7 @@ Java - "portable language" (write once, run anywhere).
 7. [Reflection](https://github.com/Shiru99/Basics-of-Java/tree/main/ReflectionAPI)
 8. [Asynchronous](https://github.com/Shiru99/Basics-of-Java/tree/main/Asynchronous)
 9. [Log-System](https://github.com/Shiru99/Basics-of-Java/tree/main/LogSystem)
+10. [Parallel-Streams](https://github.com/Shiru99/Basics-of-Java/tree/main/ParallelStreams)
+
 
 
