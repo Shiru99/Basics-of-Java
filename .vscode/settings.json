@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "ReflectionAPI/ORM/DB/h2-2.1.214.jar",
+        "BenchMarks/JMH/jmh-core-1.33.jar",
+        "BenchMarks/JMH/jmh-generator-annprocess-1.33.jar",
+    ]
+}
